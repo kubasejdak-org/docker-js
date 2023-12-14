@@ -1,0 +1,7 @@
+clean:
+  tags:
+    - docker-build
+  stage: cleanup
+  when: always
+  script:
+    - rm -rf ${ARTIFACTS_PATH}/${CI_PIPELINE_ID}
