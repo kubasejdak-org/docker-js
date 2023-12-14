@@ -1,0 +1,15 @@
+.build-node-image:
+  extends: .build-image-x64
+  stage: build-node
+  variables:
+    IMAGE_NAME: "node"
+
+node:20-22.04:
+  extends: .build-node-image
+  variables:
+    IMAGE_TAG: "20-22.04"
+
+node:21-22.04:
+  extends: .build-node-image
+  variables:
+    IMAGE_TAG: "21-22.04"
