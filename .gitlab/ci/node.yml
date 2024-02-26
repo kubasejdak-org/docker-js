@@ -2,7 +2,7 @@
   extends: .build-image-x64
   stage: build-node
   variables:
-    DOCKER_BUILD_ARGS: "--pull --no-cache"
+    DOCKER_BUILD_ARGS: "--pull"
     IMAGE_NAME: "node"
 
 node:20-22.04:

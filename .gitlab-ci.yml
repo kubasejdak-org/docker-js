@@ -10,7 +10,7 @@ variables:
   script:
     - cd ${ROOT_PATH}${IMAGE_NAME}/${IMAGE_TAG}
     - echo "Using docker build args '${DOCKER_BUILD_ARGS}'"
-    - docker ${DOCKER_BUILD_CMD} ${DOCKER_BUILD_ARGS} -t embeddedlinux/${IMAGE_NAME}:${IMAGE_TAG} .
+    - docker ${DOCKER_BUILD_CMD} ${DOCKER_BUILD_ARGS} --no-cache -t embeddedlinux/${IMAGE_NAME}:${IMAGE_TAG} .
     - cd -
     - docker save -o ${ARTIFACTS_PATH}/${CI_PIPELINE_ID}/${IMAGE_NAME}-${IMAGE_TAG} embeddedlinux/${IMAGE_NAME}:${IMAGE_TAG}
 
