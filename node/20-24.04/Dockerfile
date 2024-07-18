@@ -1,13 +1,12 @@
-FROM embeddedlinux/base:22.04
+FROM kubasejdak/base:24.04
 
 # Settings.
 ARG NODE_VERSION=20
 ARG NVMSH_VERSION=0.39.7
 
 # Install node and latest npm.
-RUN sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && \
+RUN sudo apt update && \
     sudo apt install -y wget && \
-    sudo apt install --reinstall -y ca-certificates && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVMSH_VERSION}/install.sh | bash && \
     export NVM_DIR="${HOME}/.nvm" && \
     . ${NVM_DIR}/nvm.sh && \
