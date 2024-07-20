@@ -56,6 +56,7 @@ jobs:
     runs-on: [self-hosted, heavy-build]
     needs:
       - build-node
+      - build-hugo
     steps:
       - run: echo "Success"
 
