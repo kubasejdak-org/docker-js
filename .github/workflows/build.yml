@@ -3,7 +3,7 @@ name: Build Docker images for JavaScript
 on:
   push:
   schedule:
-    - cron: "0 8 * * SAT"
+    - cron: "0 4 * * SAT"
   workflow_dispatch:
 
 jobs:
