@@ -38,7 +38,7 @@ jobs:
         include:
           - IMAGE_NAME: hugo
             IMAGE_TAG: 20-24.04
-            PARENT_ARTIFACT: node-20-22.04
+            PARENT_ARTIFACT: node-20-24.04
           - IMAGE_NAME: hugo
             IMAGE_TAG: 22-24.04
             PARENT_ARTIFACT: node-22-24.04
