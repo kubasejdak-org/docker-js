@@ -3,7 +3,7 @@ name: Build Docker images for JavaScript
 on:
   push:
   schedule:
-    - cron: "0 8 * * SAT"
+    - cron: "0 4 * * SAT"
   workflow_dispatch:
 
 jobs:
@@ -28,10 +28,35 @@ jobs:
           tag: ${{ matrix.IMAGE_TAG }}
           workdir: ${{ matrix.IMAGE_NAME }}/${{ matrix.IMAGE_TAG }}
 
+  build-hugo:
+    name: build hugo
+    runs-on: [self-hosted, heavy-build]
+    needs: build-node
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - IMAGE_NAME: hugo
+            IMAGE_TAG: 20-24.04
+            PARENT_ARTIFACT: node-20-24.04
+          - IMAGE_NAME: hugo
+            IMAGE_TAG: 22-24.04
+            PARENT_ARTIFACT: node-22-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: docker build
+        uses: kubasejdak-org/docker-build-child-action@main
+        with:
+          parentArtifact: ${{ matrix.PARENT_ARTIFACT }}
+          image: ${{ matrix.IMAGE_NAME }}
+          tag: ${{ matrix.IMAGE_TAG }}
+          workdir: ${{ matrix.IMAGE_NAME }}/${{ matrix.IMAGE_TAG }}
+
   check-all:
     runs-on: [self-hosted, heavy-build]
     needs:
       - build-node
+      - build-hugo
     steps:
       - run: echo "Success"
 
@@ -47,6 +72,10 @@ jobs:
           - IMAGE_NAME: node
             IMAGE_TAG: 20-24.04
           - IMAGE_NAME: node
+            IMAGE_TAG: 22-24.04
+          - IMAGE_NAME: hugo
+            IMAGE_TAG: 20-24.04
+          - IMAGE_NAME: hugo
             IMAGE_TAG: 22-24.04
     steps:
       - name: docker push
