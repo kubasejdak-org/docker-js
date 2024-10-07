@@ -18,6 +18,9 @@ RUN wget ${GO_URL} && \
     sudo apt install ./$(basename ${HUGO_URL}) && \
     rm $(basename ${HUGO_URL}) && \
     \
+    # Install additional packages.
+    sudo apt install -y curl && \
+    \
     # Cleanup image.
     sudo apt remove -y wget && \
     sudo apt autoremove -y && \
