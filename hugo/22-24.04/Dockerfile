@@ -1,8 +1,8 @@
 FROM kubasejdak/node:22-24.04
 
 # Settings.
-ARG GO_VERSION=1.23.3
-ARG HUGO_VERSION=0.138.0
+ARG GO_VERSION=1.23.5
+ARG HUGO_VERSION=0.142.0
 ARG GO_URL=https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
 ARG HUGO_URL=https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
 
