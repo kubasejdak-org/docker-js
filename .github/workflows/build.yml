@@ -47,10 +47,6 @@ jobs:
             IMAGE_TAG: 20-24.04
           - IMAGE_NAME: node
             IMAGE_TAG: 22-24.04
-          - IMAGE_NAME: hugo
-            IMAGE_TAG: 20-24.04
-          - IMAGE_NAME: hugo
-            IMAGE_TAG: 22-24.04
     steps:
       - name: docker push
         uses: kubasejdak-org/docker-push-action@main
