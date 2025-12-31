@@ -15,9 +15,9 @@ jobs:
       matrix:
         include:
           - IMAGE_NAME: node
-            IMAGE_TAG: 20-24.04
-          - IMAGE_NAME: node
             IMAGE_TAG: 22-24.04
+          - IMAGE_NAME: node
+            IMAGE_TAG: 24-24.04
     steps:
       - uses: actions/checkout@v4
       - name: docker build
@@ -44,9 +44,9 @@ jobs:
       matrix:
         include:
           - IMAGE_NAME: node
-            IMAGE_TAG: 20-24.04
-          - IMAGE_NAME: node
             IMAGE_TAG: 22-24.04
+          - IMAGE_NAME: node
+            IMAGE_TAG: 24-24.04
     steps:
       - name: docker push
         uses: kubasejdak-org/docker-push-action@main
