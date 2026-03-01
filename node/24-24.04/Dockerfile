@@ -2,7 +2,7 @@ FROM kubasejdak/base:24.04
 
 # Settings.
 ARG NODE_VERSION=24
-ARG NVMSH_VERSION=0.40.3
+ARG NVMSH_VERSION=0.40.4
 
 # Install node and latest npm.
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVMSH_VERSION}/install.sh | bash && \
