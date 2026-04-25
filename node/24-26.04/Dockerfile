@@ -1,7 +1,7 @@
-FROM kubasejdak/base:24.04
+FROM kubasejdak/base:26.04
 
 # Settings.
-ARG NODE_VERSION=22
+ARG NODE_VERSION=24
 ARG NVMSH_VERSION=0.40.4
 
 # Install node and latest npm.
