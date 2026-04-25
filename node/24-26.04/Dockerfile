@@ -1,4 +1,4 @@
-FROM kubasejdak/base:24.04
+FROM kubasejdak/base:26.04
 
 # Settings.
 ARG NODE_VERSION=24
