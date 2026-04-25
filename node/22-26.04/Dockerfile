@@ -9,6 +9,8 @@ RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVMSH_VERSION}/ins
     export NVM_DIR="${HOME}/.nvm" && \
     . ${NVM_DIR}/nvm.sh && \
     nvm install ${NODE_VERSION} && \
+    sudo apt update && \
+    sudo apt install -y git && \
     npm install -g npm@latest && \
     npm config -g set fund false && \
     \
